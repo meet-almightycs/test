@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-<record id="rounding_tree_view" model="ir.ui.view">
+<record id="doctor_view" model="ir.ui.view">
             <field name="name">hms.doctor.tree</field>
             <field name="model">hms.doctor</field>
             <field name="arch" type="xml">
@@ -12,7 +12,7 @@
         </record>
 
        
-        <record id="action_account_fiscal_year_form" model="ir.ui.view">
+        <record id="doctor_form" model="ir.ui.view">
             <field name="name"></field>
             <field name="model">hms.doctor</field>
             <field name="arch" type="xml">
@@ -34,9 +34,8 @@
                                
                             <group>
                                  <field name="government_id"/>
-                                 <field name="specialty"/> 
+                                 <field name="doctor_specialty"/> 
                                  <field name="photo" widget='image' class="oe_avatar"/>
-
                             </group>
                         </group>
                         <notebook> 
@@ -70,16 +69,16 @@
             </field>
         </record>
 
-           <record id="rounding_list_action" model="ir.actions.act_window">
-            <field name="name">name</field>
+           <record id="hms_doctor_action" model="ir.actions.act_window">
+            <field name="name">doctor</field>
             <field name="res_model">hms.doctor</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Create the first cash rounding</p>
             </field>
-        </record>
+           </record>
 
 
-        <menuitem id="menu_action_rounding_form_view" action="rounding_list_action"
+        <menuitem id="hms_doctor_menu" action="hms_doctor_action"
                   sequence="4"/>
 </odoo>

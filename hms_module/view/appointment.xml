@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="appointment_view" model="ir.ui.view">
+            <field name="name">hms.appointment.tree</field>
+            <field name="model">hms.appointment</field>
+            <field name="arch" type="xml">
+                <tree string="Tree">
+                    <field name="identification_no"/>
+                    <field name="patient"/>       
+                    <field name="age"/>
+                    <field name="physician"/>
+                    <field name="age"/>
+                    <field name="cabin"/>
+                    <field name="urgency_level"/>
+                    <field name="date"/>
+                    <field name="purpose"/>
+                    <field name="responsible_jr_doctor"/>
+                </tree>
+            </field>
+        </record>
+
+       
+        <record id="appointment_form" model="ir.ui.view">
+            <field name="name"></field>
+            <field name="model">hms.appointment</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                          
+                        <group>
+                            <group>
+                                <field name="identification_no"/>
+                                <field name="patient"/>       
+                                <field name="age"/>
+                                <field name="physician"/>
+                                <field name="age"/>
+                                <field name="cabin"/>
+                            </group>
+                            <group>
+                            	 <field name="date"/>
+                               <field name="urgency_level"/>
+                               <field name="purpose"/>
+                            </group>
+                        </group>
+                        <notebook> 
+                              <page string="General Information">
+                                <group>
+                                    <group>
+                                       <field name="outside_appointment"/>
+                                    </group>
+                                    <group>
+                                         <field name="responsible_jr_doctor"/>
+                                    </group>   
+                                </group>
+                                <group>
+
+                                  <field name="chief_complaints"/>
+                                  <field name="history_of_present_illness"/>
+                               </group>>
+                              </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+           <record id="hms_appointment_action" model="ir.actions.act_window">
+            <field name="name">appointment</field>
+            <field name="res_model">hms.appointment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first cash rounding</p>
+            </field>
+           </record>
+
+
+        <menuitem id="hms_appointment_menu" action="hms_appointment_action"
+                  sequence="4"/>
+</odoo>

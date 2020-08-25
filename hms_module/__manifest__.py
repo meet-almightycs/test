@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'hospital',
+    'name': 'Hospital Management System',
     'version': '1.1',
     'category': 'business',
     'summary': 'hospital Management system',
@@ -13,6 +13,8 @@ This module contains all the common features of hospial management system and he
     'data': [
 
     'view/hms.xml',
+    'view/patient.xml',
+    'view/appointment.xml',
     'security/ir.model.access.csv'
         ],
     'demo': [

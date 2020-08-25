@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record id="patient_view" model="ir.ui.view">
+            <field name="name">hms.patient.tree</field>
+            <field name="model">hms.patient</field>
+            <field name="arch" type="xml">
+                <tree string="Tree">
+                    <field name="name"/>
+                    <field name="identification_code"/>       
+                    <field name="gender"/>
+                    <field name="date_of_birth"/>
+                    <field name="age"/>
+                    <field name="address"/>
+                    <field name="occupation_patient_education_religion_tribe_ethnic_group"/>
+                    <field name="phone"/>
+                    <field name="mobile_no"/>
+                    <field name="email"/>	
+                </tree>
+            </field>
+        </record>
+
+       
+        <record id="patient_form" model="ir.ui.view">
+            <field name="name"></field>
+            <field name="model">hms.patient</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                          
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="identification_code"/>       
+                                <field name="gender"/>
+                            </group>
+                            <group>
+                            	 <field name="date_of_birth"/>
+                                 <field name="age"/>
+                            </group>
+                        </group>
+                        <notebook> 
+                              <page string="General Information">
+                                <group>
+                                    <group>
+                                       <field name="address"/>
+                                       <field name="occupation_patient_education_religion_tribe_ethnic_group"/>
+                                    </group>
+                                    <group>
+                                         <field name="phone"/>
+                                         <field name="mobile_no"/>
+                                         <field name="email"/>
+                                    </group>   
+                                </group>
+                              </page>
+                              <page string="Hospital Info">
+                              		<group>
+                              			<group>
+                                   			<field name="is_blood_receiver"/>
+                                   			<field name="is_blood_donor"/>
+                                        <field name="blood_group"/>
+                                   			<field name="is_child"/>
+                                   			<field name="family"/>
+                                   			<field name="name"/>	
+                                   			<field name="doctor"/>
+                                         	<!-- <tree string="Tree">
+                                            	<field name="name"/>       
+                                            	<field name="family"/>
+                                            	<field name="doctor"/>
+                                        	</tree> -->
+                                        </group>	
+                                    </group>
+                                  <!--   <group>
+                                    </group>    -->                          
+                              </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+           <record id="hms_patient_action" model="ir.actions.act_window">
+            <field name="name">patient</field>
+            <field name="res_model">hms.patient</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Create the first cash rounding</p>
+            </field>
+           </record>
+
+
+        <menuitem id="hms_patient_menu" action="hms_patient_action"
+                  sequence="4"/>
+</odoo>

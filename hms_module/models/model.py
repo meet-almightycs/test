@@ -14,7 +14,7 @@ class Hmsdoctor(models.Model):
     primary_surgeon = fields.Boolean(string = 'Primary Surgeon')
     consultation_physician = fields.Boolean(string = 'Consultation Physician')
     government_id = fields.Char(string = 'Government ID' , required = True)
-    specialty = fields.Many2one('specialty' , string = "Specialty")
+    doctor_specialty = fields.Many2one('doctor.specialty' , string = "Specialty")
     photo = fields.Image("Photo", max_width=1920, max_height=1920)
     mobile_No = fields.Char(string= ' Mobile No.' , required = True)
     address = fields.Char(string = 'Address' , required = True)
@@ -28,33 +28,33 @@ class Hmsdoctor(models.Model):
     note = fields.Text(string='prescription', translate=True) 
     doctor_name_id = fields.Many2one('hms.patient', string='Patient')
 
-    reconciled_invoice_ids = fields.Many2many('account.move', string='Reconciled Invoices', compute='_compute_reconciled_invoice_ids', help="Invoices whose journal items have been reconciled with these payments.")
-    has_invoices = fields.Boolean(compute="_compute_reconciled_invoice_ids", help="Technical field used for usability purposes")
+    #reconciled_invoice_ids = fields.Many2many('account.move', string='Reconciled Invoices', compute='_compute_reconciled_invoice_ids', help="Invoices whose journal items have been reconciled with these payments.")
+    #has_invoices = fields.Boolean(compute="_compute_reconciled_invoice_ids", help="Technical field used for usability purposes")
    # move_line_ids = fields.One2many('account.move.line', 'payment_id', readonly=True, copy=False, ondelete='restrict')
    
 
 
 
 
-class hmspatient(models.Model):
-    _name = 'hms.patient'
-    _description = "Patient"
+# class hmspatient(models.Model):
+#      _name = 'hms.patient'
+#      _description = "Patient"
     
-    name = fields.Char(string='Patient', required=True, translate=True)
-    doctor = fields.Selection([
-            ('MBBS', 'MBBS'),
-            ('MD', 'M_D'),
+#      name = fields.Char(string='Patient', required=True, translate=True)
+#      doctor = fields.Selection([
+#              ('MBBS', 'MBBS' ),
+#              ('MD', 'M_D'),
 
-            ], required=True, string='Digree')
+#              ], required=True, string='Degree')
      
-    family = fields.Char(string='family' , required = True)
+#      family = fields.Char(string='family' , required = True)
 
 
 
 
 
-class specialty(models.Model):         
-   _name = 'specialty'
-   _description = "specialty"
+class doctorspecialty(models.Model):         
+   _name = 'doctor.specialty'
+   _description = "doctorspecialty"
 
    specialty = fields.Char(string="Specialty", required = True , translate = True)
