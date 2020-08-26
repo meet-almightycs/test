@@ -15,6 +15,7 @@
                     <field name="date"/>
                     <field name="purpose"/>
                     <field name="responsible_jr_doctor"/>
+
                 </tree>
             </field>
         </record>
@@ -25,6 +26,11 @@
             <field name="model">hms.appointment</field>
             <field name="arch" type="xml">
                 <form>
+                  <header>
+                    <!-- <button name="confirm_record_name" string="Confirm"
+                        type="object" class="oe_highlight"/>
+                     --><!-- <button name="action_quotation_send" string="Send by Email" type="object" states="draft" class="btn-primary"/> -->
+                  </header> 
                     <sheet>
                           
                         <group>
@@ -40,6 +46,7 @@
                             	 <field name="date"/>
                                <field name="urgency_level"/>
                                <field name="purpose"/>
+                               <field name="state"/>
                             </group>
                         </group>
                         <notebook> 
