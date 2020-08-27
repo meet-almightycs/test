@@ -15,8 +15,50 @@
                     <field name="date"/>
                     <field name="purpose"/>
                     <field name="responsible_jr_doctor"/>
-
+                    <field name="ammount"/>
                 </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="appointment_graph_view">
+             <field name="name">hms.appointment.graph</field>
+             <field name="model">hms.appointment</field>
+             <field name="arch" type="xml">
+                 <graph string="Graph">
+                     <!-- <field name="identification_no"/> -->
+                     <field name="patient"/>       
+                     <!-- <field name="age"/> -->
+                     <field name="ammount"/>
+                     <!-- <field name="age"/>
+                     <field name="cabin"/>
+                     <field name="urgency_level"/>
+                     <field name="date"/>
+                     <field name="purpose"/>
+                     <field name="responsible_jr_doctor"/> -->
+                 </graph>
+             </field>
+         </record>
+
+         <record model="ir.ui.view" id="appointment_pivot_view">
+            <field name="name">hms.appointment.pivot</field>
+            <field name="model">hms.appointment</field>
+            <field name="arch" type="xml">
+                <pivot string="pivot">
+                  <field name="patient" type="measure"/>
+                  <field name="physician" type="row"/>
+                </pivot>
+            </field>
+         </record> 
+
+         <record id="appointment_calendar_view" model="ir.ui.view">
+            <field name="name">hms.appointment.calendar</field>
+            <field name="model">hms.appointment</field>
+            <field name="arch" type="xml">
+                <calendar string="calendar" date_start="date" color="age" event_limit="5">
+                  <field name="patient"/>
+                  <field name="physician"/>
+                  <field name="name"/>
+                </calendar>
             </field>
         </record>
 
@@ -35,12 +77,14 @@
                           
                         <group>
                             <group>
+                                <field name="name"/>
                                 <field name="identification_no"/>
                                 <field name="patient"/>       
                                 <field name="age"/>
                                 <field name="physician"/>
                                 <field name="age"/>
                                 <field name="cabin"/>
+                                <field name="ammount"/>
                             </group>
                             <group>
                             	 <field name="date"/>
@@ -73,9 +117,9 @@
         </record>
 
            <record id="hms_appointment_action" model="ir.actions.act_window">
-            <field name="name">appointment</field>
+            <field name="name">Appointment</field>
             <field name="res_model">hms.appointment</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,graph,pivot,calendar</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Create the first cash rounding</p>
             </field>

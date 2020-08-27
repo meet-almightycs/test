@@ -8,7 +8,8 @@ from datetime import date
 class Hmsappointment(models.Model):
     _name = 'hms.appointment' 
     _description = "hmsappointment"
-    
+
+    name = fields.Char(string = 'Name')
     identification_no = fields.Char(string='Identification No' ,required = True)
     patient = fields.Many2one('hms.patient' , string = "Patient" , required=True)
     age = fields.Char(string = 'Age' , required = True)
@@ -30,6 +31,7 @@ class Hmsappointment(models.Model):
             ('conform','Conform'),
 
         ], string = "State")
+    ammount = fields.Float(string = 'Ammount')
 
     @api.model
     def create(self, vals):
@@ -42,4 +44,19 @@ class Hmsappointment(models.Model):
         record =  super(Hmsappointment, self).create(vals)
         return record
 
+
+   # @api.model
+    def write(self,vals):
+        print(vals)
+        if 'physician' in vals:
+            if vals.get('physician'):
+                 purpose = "fkjweugfiycg"
+                 print("uhsdic",purpose)
+            else :
+                purpose = ""
+                print("uhsdic",purpose)
+        purpose = ""
+        vals['purpose'] = purpose
+        record = super(Hmsappointment,self).write(vals)
+        return record
 
