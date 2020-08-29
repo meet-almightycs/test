@@ -5,6 +5,7 @@
             <field name="model">hms.appointment</field>
             <field name="arch" type="xml">
                 <tree string="Tree">
+                    <field name="name"/>
                     <field name="identification_no"/>
                     <field name="patient"/>       
                     <field name="age"/>
@@ -50,6 +51,7 @@
             </field>
          </record> 
 
+
          <record id="appointment_calendar_view" model="ir.ui.view">
             <field name="name">hms.appointment.calendar</field>
             <field name="model">hms.appointment</field>
@@ -62,6 +64,43 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="appointment_kanban_view">
+            <field name="name">hms.appointment.kanban</field>
+            <field name="model">hms.appointment</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                  <field name="name"/>
+                  <field name="identification_no"/>
+                  <field name="patient"/>       
+                  <field name="age"/>
+                  <field name="physician"/>
+                  <!-- <progressbar field="name" colors='{"planned": "success", "today": "warning", "overdue": "danger"}'/> -->
+                  <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+                                    <div class="o_kanban_record_headings mt4">
+                                      
+                                      <strong class="o_kanban_record_title"><span><t t-esc="record.name.value"/></span></strong>
+                                    </div>
+                                   
+                                </div>
+                                <ul>
+                                  <li><strong>Identification No:-</strong><field name="identification_no"/></li>
+                                </ul>
+                                <ul>
+                                  <li><strong>Age:-</strong><field name="age"/></li>
+                                </ul>
+                                <ul>
+                                        <li><strong>Doctor:- <field name="physician"></field></strong></li>
+                                </ul>
+                          </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
        
         <record id="appointment_form" model="ir.ui.view">
             <field name="name"></field>
@@ -69,12 +108,12 @@
             <field name="arch" type="xml">
                 <form>
                   <header>
-                    <!-- <button name="confirm_record_name" string="Confirm"
+                    <button name="confirm_record_name" string="Confirm"
                         type="object" class="oe_highlight"/>
-                     --><!-- <button name="action_quotation_send" string="Send by Email" type="object" states="draft" class="btn-primary"/> -->
+                    <button name="action_draft" states="cancel" type="object" string="Set to Quotation"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,waiting,conform"/>
                   </header> 
                     <sheet>
-                          
                         <group>
                             <group>
                                 <field name="name"/>
@@ -90,7 +129,6 @@
                             	 <field name="date"/>
                                <field name="urgency_level"/>
                                <field name="purpose"/>
-                               <field name="state"/>
                             </group>
                         </group>
                         <notebook> 
@@ -119,7 +157,7 @@
            <record id="hms_appointment_action" model="ir.actions.act_window">
             <field name="name">Appointment</field>
             <field name="res_model">hms.appointment</field>
-            <field name="view_mode">tree,form,graph,pivot,calendar</field>
+            <field name="view_mode">tree,form,graph,pivot,calendar,kanban</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Create the first cash rounding</p>
             </field>

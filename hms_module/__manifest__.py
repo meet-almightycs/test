@@ -15,6 +15,7 @@ This module contains all the common features of hospial management system and he
     'view/hms.xml',
     'view/patient.xml',
     'view/appointment.xml',
+    'data/sequence.xml',
     'security/ir.model.access.csv'
         ],
     'demo': [
