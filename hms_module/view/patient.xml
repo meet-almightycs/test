@@ -72,6 +72,11 @@
                                   <!--   <group>
                                     </group>    -->                          
                               </page>
+                              <page string="Diseases">
+                                <group>
+                                  <field name="medical_alert" widget="many2many_tags_avatar" write_model="calendar.contacts" write_field="partner_id" avatar_field="image_128"/>
+                                </group>
+                              </page>
                         </notebook>
 
                     </sheet>

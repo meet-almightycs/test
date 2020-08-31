@@ -35,6 +35,13 @@ class Hmspatient(models.Model):
     #name = fields.Char(string='Patient', translate=True, required= True)
     doctor = fields.Selection([
              ('MBBS', 'MBBS'),
-             ('MD', 'M_D'),
-
+             ('MD', 'MD'),
              ], string='Digree')
+    medical_alert = fields.Many2many('madical.alert' , string='Madical Alert')
+
+class hmsPatientmadicalalert(models.Model):         
+   _name = 'madical.alert'
+   _description = "madical alert"
+
+   specialty = fields.Char(string="Specialty", required = True , translate = True)
+   name = fields.Char(string="Name")
