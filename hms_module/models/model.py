@@ -49,10 +49,6 @@ class Hmsdoctor(models.Model):
      
 #      family = fields.Char(string='family' , required = True)
 
-
-
-
-
 class doctorspecialty(models.Model):         
    _name = 'doctor.specialty'
    _description = "doctorspecialty"

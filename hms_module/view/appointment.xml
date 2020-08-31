@@ -108,10 +108,11 @@
             <field name="arch" type="xml">
                 <form>
                   <header>
-                    <button name="confirm_record_name" string="Confirm"
+                    <button name="conform_record_name" string="Confirm"
                         type="object" class="oe_highlight"/>
-                    <button name="action_draft" states="cancel" type="object" string="Set to Quotation"/>
-                    <field name="state" widget="statusbar" statusbar_visible="draft,waiting,conform"/>
+                    <button name="%(hms_reject_action)d" string="Reject"
+                        type="action" class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,waiting,conform,conformd,reject"/>
                   </header> 
                     <sheet>
                         <group>
@@ -129,6 +130,8 @@
                             	 <field name="date"/>
                                <field name="urgency_level"/>
                                <field name="purpose"/>
+                               <field name="reject"/>
+                               <field name="signature" widget="signature"/>
                             </group>
                         </group>
                         <notebook> 

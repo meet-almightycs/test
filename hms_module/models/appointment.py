@@ -29,10 +29,13 @@ class Hmsappointment(models.Model):
     state = fields.Selection([
             ('draft','Quotation'),
             ('waiting','Quotation Send'),
-            ('+conform','Sales Order'),
+            ('confirm','Sales Order'),
+            ('conformd','Conformd'),
+            ('reject','Reject'),
         ], string = 'State', default = 'draft')
     ammount = fields.Float(string = 'Ammount')
-
+    signature = fields.Binary(string='Signature') 
+    reject = fields.Text(string = 'Reject')
     @api.model
     def create(self, vals):
         #date = vals.get('date', '')
@@ -73,3 +76,10 @@ class Hmsappointment(models.Model):
         if self.patient:
             self.age = self.patient.age
 
+    def conform_record_name(self):
+        # print("meet-----------------------:-",conformd)
+
+        self.state = "conformd" 
+
+    # def reject(self):
+    #     self.reason = "reject" 
