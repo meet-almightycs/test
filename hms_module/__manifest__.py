@@ -12,13 +12,15 @@ This module contains all the common features of hospial management system and he
     'depends': ['base'],
     'data': [
 
-    
+
     'wizard/reject.xml',
+    'report/hms_report.xml',
     'view/hms.xml',
     'view/patient.xml',
     'view/appointment.xml',
     'data/sequence.xml',
     'security/ir.model.access.csv'
+
         ],
     'demo': [
         

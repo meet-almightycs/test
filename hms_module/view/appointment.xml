@@ -155,8 +155,7 @@
                     </sheet>
                 </form>
             </field>
-        </record>
-
+        </record>S
            <record id="hms_appointment_action" model="ir.actions.act_window">
             <field name="name">Appointment</field>
             <field name="res_model">hms.appointment</field>

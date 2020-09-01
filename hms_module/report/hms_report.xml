@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            id="appointment_report_action"
+            string="Appointment"
+            model="hms.appointment" 
+            report_type="qweb-pdf"
+            file="hms_module.report_appointment" 
+            name="hms_module.report_appointment"
+        />
+       
+        <template id="report_appointment">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                         <div class="page">
+                            <div class="oe_structure"/>
+                            <div class="row mt64">
+                                <h2 class="mt16 text-center">
+                                    <span t-field="doc.name"/>
+                                </h2>
+                            </div>
+                                <div class="mt16 text-right">
+                                    <div t-field="doc.identification_no"/>
+                                </div>   
+                         </div>
+                    </t> 
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
