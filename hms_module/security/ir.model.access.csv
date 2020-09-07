@@ -4,5 +4,7 @@ access_hms_patient,access_hms_patient,model_hms_patient,base.group_user,1,1,1,1
 access_doctor_specialty,access_doctor_specialty,model_doctor_specialty,base.group_user,1,1,1,1 
 access_hms_appointment,access_hms_appointment,model_hms_appointment,base.group_user,1,1,1,1
 access_madical_alert,access_madical_alert,model_madical_alert,base.group_user,1,1,1,1
-
+access_hms_disease,access_hms_disease,model_hms_disease,base.group_user,1,1,1,1 
+access_medicaments_group,access_medicaments_group,model_medicaments_group,base.group_user,1,1,1,1 
+access_hms_prescription_user,access_hms_prescription_user,hms_module.model_hms_prescription,,1,1,1,1 
 

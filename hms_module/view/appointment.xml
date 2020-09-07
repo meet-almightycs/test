@@ -81,10 +81,13 @@
                                 <div class="o_kanban_record_top mb16">
                                     <div class="o_kanban_record_headings mt4">
                                       
-                                      <strong class="o_kanban_record_title"><span><t t-esc="record.name.value"/></span></strong>
+                                       
                                     </div>
                                    
                                 </div>
+                                <ul>
+                                  <li><strong><field name="name"/></strong></li>
+                                </ul>
                                 <ul>
                                   <li><strong>Identification No:-</strong><field name="identification_no"/></li>
                                 </ul>
@@ -92,7 +95,7 @@
                                   <li><strong>Age:-</strong><field name="age"/></li>
                                 </ul>
                                 <ul>
-                                        <li><strong>Doctor:- <field name="physician"></field></strong></li>
+                                  <li><strong>Doctor:- <field name="physician"></field></strong></li>
                                 </ul>
                           </div>
                         </t>
@@ -127,7 +130,7 @@
                                 <field name="ammount"/>
                             </group>
                             <group>
-                            	 <field name="date"/>
+                               <field name="date"/>
                                <field name="urgency_level"/>
                                <field name="purpose"/>
                                <field name="reject"/>
@@ -155,7 +158,7 @@
                     </sheet>
                 </form>
             </field>
-        </record>S
+        </record>
            <record id="hms_appointment_action" model="ir.actions.act_window">
             <field name="name">Appointment</field>
             <field name="res_model">hms.appointment</field>

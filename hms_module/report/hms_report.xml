@@ -14,38 +14,61 @@
             <t t-call="web.html_container">
                 <t t-foreach="docs" t-as="doc">
                     <t t-call="web.external_layout">
-                         <div class="page">
+                        <div class="page">
                             <div class="oe_structure"/>
+         
+
                             <div class="mt16 row mt16">
                                 <div class="mt16 col-auto mw-100 mb-2"> 
                                     <strong>Name:</strong>
                                     <p class="m-0" t-field="doc.name"/>
                                 </div>
-                                <div class="mt16 col-auto mw-100 mb-2 text=center"> 
-                                    <strong>Date:</strong>
-                                    <p class="m-0" t-field="doc.date"/>
-                                </div>
-                                <div class="mt16 col-auto mw-100 mb-2 text=left"> 
+                            </div>
+                        </div>
+                                <div>       
+                                    <div class="mt16 col-auto mw-100 mb-2 text-center"> 
+                                        <strong>Date:</strong>
+                                        <p class="m-0" t-field="doc.date"/>
+                                    </div>
+                                </div>    
+                                <div class="mt16 col-auto mw-100 mb-2 text-left"> 
                                     <strong>Identification No:</strong>
                                     <p class="m-0" t-field="doc.identification_no"/>
                                 </div>
-                                <div class="mt16 col-auto mw-100 mb-2 text=center">   
+                                <div class="mt16 col-auto mw-100 mb-2 text-center">   
                                     <strong>Patient:</strong>
                                     <p class="m-0" t-field="doc.patient"/>
                                 </div>
-                                <div class="mt16 col-auto mw-100 mb-2 text=left">
+                                <div class="mt16 col-auto mw-100 mb-2 text-left">
                                     <strong>Urgency Level:</strong>
                                     <p class="m-0" t-field="doc.urgency_level"/>
                                 </div>
-                                <div class="mt16 col-auto mw-100 mb-2 text=center">
+                                <div class="mt16 col-auto mw-100 mb-2 text-center">
                                     <strong>Ammount:</strong>
                                     <p class="m-0" t-field="doc.ammount"/>
                                 </div>
-                            </div>   
-                         </div>
+                                <div class="mt16 col-auto mw-100 mb-2 text-right">
+                                    <strong>Reject:</strong>
+                                    <p class="m-0" t-field="doc.reject"/>
+                                </div>
+
+                                <table class="table table-sm o_main_table">
+                                    <thead>
+                                        <tr>
+                                            <th name="purpose" class="text-left">Purpose</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <div class="mt16 col-auto mw-100 mb-2 text-right">
+                                    <strong>Signature:</strong>
+                                    <p class="m-0" t-field="doc.signature"/>
+                                </div>
+                           <!--  </div>   
+                         </div> -->
                     </t> 
                 </t>
             </t>
+            
         </template>
     </data>
 </odoo>

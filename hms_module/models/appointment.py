@@ -51,8 +51,6 @@ class Hmsappointment(models.Model):
         vals['name'] = self.env['ir.sequence'].next_by_code('hms.appointment') or 'New'
         record = super(Hmsappointment, self).create(vals)
         return record
-            
-
 
    # @api.model
     def write(self,vals):
