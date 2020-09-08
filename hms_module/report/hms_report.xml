@@ -61,7 +61,7 @@
                                 </table>
                                 <div class="mt16 col-auto mw-100 mb-2 text-right">
                                     <strong>Signature:</strong>
-                                    <p class="m-0" t-field="doc.signature"/>
+                                    <span t-field="doc.signature" t-options='{"widget": "image","style":"width: 150px;height: 70px"}'/>
                                 </div>
                            <!--  </div>   
                          </div> -->
