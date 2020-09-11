@@ -23,21 +23,27 @@
         <record id="patient_form" model="ir.ui.view">
             <field name="name"></field>
             <field name="model">hms.patient</field>
+            <field name="priority" eval="3"/>
+            <field name="groups_id" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
             <field name="arch" type="xml">
                 <form>
-                    <sheet>
-                          
+                  <sheet>
+                    <div class="oe_button_box" name="button_box">
+                      <button class="oe_stat_button text-right" type="action" name="%(hms_appointment_action)d" groups="sales_team.group_sale_salesman" icon="fa-usd">    
+                        <field string="Appointment" name="appointment_count" widget="statinfo"/>
+                      </button>
+                    </div>    
+                      <group>
                         <group>
-                            <group>
-                                <field name="name"/>
-                                <field name="identification_code"/>       
-                                <field name="gender"/>
-                            </group>
-                            <group>
-                            	 <field name="date_of_birth"/>
-                                 <field name="age"/>
-                            </group>
+                          <field name="name"/>
+                            <field name="identification_code"/>       
+                            <field name="gender"/>
+                          </group>
+                        <group>
+                          <field name="date_of_birth"/>
+                          <field name="age"/>
                         </group>
+                      </group>
                         <notebook> 
                               <page string="General Information">
                                 <group>

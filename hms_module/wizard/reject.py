@@ -13,7 +13,5 @@ class HmsReject(models.TransientModel):
     
     def reject(self):
         appointment = self.env['hms.appointment'].browse(self._context.get('active_ids', []))
-        #print("meet________________________:-",appointment)
-
         appointment.reject = self.reason
         appointment.state = "reject"

@@ -9,12 +9,12 @@ class Hmsappointment(models.Model):
     _name = 'hms.appointment' 
     _description = "hmsappointment"
 
-    name = fields.Char(string = 'Appointment No.' )
+    name = fields.Char(string='Appointment No.' )
     identification_no = fields.Char(string='Identification No' ,required = True)
     patient = fields.Many2one('hms.patient' , string = "Patient" , required=True)
     age = fields.Char(string = 'Age' , required = True)
     physician = fields.Many2one('hms.doctor' , string = "Physician")
-    date = fields.Datetime (string = 'Date')
+    date = fields.Datetime(string = 'Date')
     urgency_level = fields.Selection([
                     ('normal','Normal'),
                     ('urgent','Urgent'),

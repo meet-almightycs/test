@@ -1,13 +1,19 @@
  #-*- coding: utf-8 -*-
 
-from odoo import models, fields, api,_ 
-
-
+from odoo import models, fields, api,_
 
 class Hmspatient(models.Model):
     _name = 'hms.patient'
 
     _description = "hmsPatient"
+
+    def appintment_count(self):
+        for record in self:
+            
+            Count=self.env['hms.appointment'].search_count([('patient', '=', record.id)])
+            print  ("mmmmmmmmmmmmmmmmmmmmmmmmmmm",Count)
+            record.appointment_count=Count
+        # self.search_count([('patient', '=', )])
 
     name = fields.Char(string = "Name" ,required = True)
     identification_code= fields.Char(string='Identification Code', required=True, translate=True)
@@ -34,10 +40,13 @@ class Hmspatient(models.Model):
     family = fields.Char(string='family')
     #name = fields.Char(string='Patient', translate=True, required= True)
     doctor = fields.Selection([
-             ('MBBS', 'MBBS'),
-             ('MD', 'MD'),
+             ('MBBS','MBBS'),
+             ('MD','MD'),
              ], string='Digree')
     medical_alert = fields.Many2many('madical.alert' , string='Madical Alert')
+    appointment_count = fields.Integer(compute='appintment_count', string='Appointment Count')
+
+
 
 class hmsPatientmadicalalert(models.Model):         
    _name = 'madical.alert'
@@ -45,3 +54,4 @@ class hmsPatientmadicalalert(models.Model):
 
    specialty = fields.Char(string="Specialty", required = True , translate = True)
    name = fields.Char(string="Name")
+
